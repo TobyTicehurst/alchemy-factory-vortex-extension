@@ -1,0 +1,19 @@
+# The tests, on Windows (their paths are Windows ones) with Node.js 24 (Vortex's).
+name: Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Test
+        run: node --test
